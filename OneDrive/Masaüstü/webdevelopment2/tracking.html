@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Track Shipment</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">🚢 Global Freight</div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="customer.html">Customer Portal</a></li>
+                <li><a href="admin.html">Admin Panel</a></li>
+                <li><a href="tracking.html" class="active">Track Shipment</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container" style="margin-top: 100px;">
+        <h1>Shipment Tracking System</h1>
+        
+        <div class="tracking-form">
+            <div class="form-group">
+                <label for="orderId">Enter Your Order ID</label>
+                <input type="text" id="orderId" placeholder="e.g. ORD-1730912345678">
+            </div>
+            <button id="trackBtn" class="btn btn-primary">Track</button>
+        </div>
+
+        <div id="trackingResult" class="tracking-result" style="display: none;">
+            <div class="tracking-card">
+                <h2>Shipment Information</h2>
+                <div class="tracking-info">
+                    <div class="info-row">
+                        <span>Order ID:</span>
+                        <strong id="trackOrderId"></strong>
+                    </div>
+                    <div class="info-row">
+                        <span>Customer:</span>
+                        <strong id="trackCustomer"></strong>
+                    </div>
+                    <div class="info-row">
+                        <span>Product:</span>
+                        <strong id="trackProduct"></strong>
+                    </div>
+                    <div class="info-row">
+                        <span>Weight:</span>
+                        <strong id="trackWeight"></strong>
+                    </div>
+                    <div class="info-row">
+                        <span>Destination:</span>
+                        <strong id="trackDestination"></strong>
+                    </div>
+                    <div class="info-row">
+                        <span>Container:</span>
+                        <strong id="trackContainer"></strong>
+                    </div>
+                    <div class="info-row">
+                        <span>Status:</span>
+                        <strong id="trackStatus" class="status-badge"></strong>
+                    </div>
+                    <div class="info-row">
+                        <span>Estimated Delivery:</span>
+                        <strong id="trackDelivery"></strong>
+                    </div>
+                </div>
+
+                <div class="tracking-timeline">
+                    <h3>Shipment Status</h3>
+                    <div class="timeline">
+                        <div class="timeline-item" id="step1">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <h4>Order Received</h4>
+                                <p>Your shipment has been registered in the system</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item" id="step2">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <h4>Preparing</h4>
+                                <p>Your product is being placed in container</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item" id="step3">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <h4>In Transit</h4>
+                                <p>Your shipment is on the transport vehicle</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item" id="step4">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <h4>Delivered</h4>
+                                <p>Your shipment has reached its destination</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="errorMessage" class="error-message" style="display: none;"></div>
+    </div>
+
+    <script src="app.js"></script>
+    <script src="tracking.js"></script>
+</body>
+</html>

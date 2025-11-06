@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Freight Transport & Management</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">🚢 Global Freight</div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="customer.html">Customer Portal</a></li>
+                <li><a href="admin.html">Admin Panel</a></li>
+                <li><a href="tracking.html">Track Shipment</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="container">
+            <h1>Logistics Solutions from Muğla to the World</h1>
+            <p>Reliable, fast and optimized cargo transportation</p>
+            <div class="cta-buttons">
+                <a href="customer.html" class="btn btn-primary">Send Cargo</a>
+                <a href="tracking.html" class="btn btn-secondary">Track Your Cargo</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="features">
+        <div class="container">
+            <h2>Our Services</h2>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="icon">📦</div>
+                    <h3>Easy Cargo Creation</h3>
+                    <p>Enter your product details, get instant pricing</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon">🚚</div>
+                    <h3>Optimized Container Usage</h3>
+                    <p>Cost savings with most efficient packing</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon">🌍</div>
+                    <h3>Worldwide Delivery</h3>
+                    <p>Safe transportation from Muğla to all over the world</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon">📊</div>
+                    <h3>Real-Time Tracking</h3>
+                    <p>Monitor your cargo status instantly</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats">
+        <div class="container">
+            <div class="stat-grid">
+                <div class="stat-item">
+                    <h3 id="totalShipments">0</h3>
+                    <p>Total Shipments</p>
+                </div>
+                <div class="stat-item">
+                    <h3 id="totalDistance">0 km</h3>
+                    <p>Total Distance</p>
+                </div>
+                <div class="stat-item">
+                    <h3>3 Ships</h3>
+                    <p>Fleet Capacity</p>
+                </div>
+                <div class="stat-item">
+                    <h3>4 Trucks</h3>
+                    <p>Local Distribution</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Global Freight Transport & Management - Muğla, Turkey</p>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const shipments = JSON.parse(localStorage.getItem('shipments') || '[]');
+            document.getElementById('totalShipments').textContent = shipments.length;
+            
+            const totalDist = shipments.reduce((sum, s) => sum + (s.distance || 0), 0);
+            document.getElementById('totalDistance').textContent = totalDist.toLocaleString('en-US') + ' km';
+        });
+    </script>
+</body>
+</html>

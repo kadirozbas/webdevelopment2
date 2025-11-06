@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Portal - Send Cargo</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">🚢 Global Freight</div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="customer.html" class="active">Customer Portal</a></li>
+                <li><a href="admin.html">Admin Panel</a></li>
+                <li><a href="tracking.html">Track Shipment</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container" style="margin-top: 100px;">
+        <h1>Create Shipment</h1>
+        
+        <div class="form-container">
+            <form id="shipmentForm">
+                <div class="form-group">
+                    <label for="customerName">Customer Name *</label>
+                    <input type="text" id="customerName" required placeholder="e.g. John Doe">
+                </div>
+
+                <div class="form-group">
+                    <label for="productName">Product Name *</label>
+                    <input type="text" id="productName" required placeholder="e.g. Fresh Blueberries">
+                </div>
+
+                <div class="form-group">
+                    <label for="category">Category *</label>
+                    <select id="category" required>
+                        <option value="">Select Category</option>
+                        <option value="Fresh">Fresh</option>
+                        <option value="Frozen">Frozen</option>
+                        <option value="Organic">Organic</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="weight">Weight (kg) *</label>
+                    <input type="number" id="weight" required min="1" placeholder="e.g. 500">
+                </div>
+
+                <div class="form-group">
+                    <label for="containerType">Container Type *</label>
+                    <select id="containerType" required>
+                        <option value="">Select Container Type</option>
+                        <option value="Small">Small (2,000 kg - ₺5/km)</option>
+                        <option value="Medium">Medium (5,000 kg - ₺8/km)</option>
+                        <option value="Large">Large (10,000 kg - ₺12/km)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="destinationCity">Destination City *</label>
+                    <input type="text" id="destinationCity" required placeholder="e.g. Berlin">
+                </div>
+
+                <div class="form-group">
+                    <label for="destinationCountry">Destination Country *</label>
+                    <input type="text" id="destinationCountry" required placeholder="e.g. Germany">
+                </div>
+
+                <div class="form-group">
+                    <label for="productImage">Product Image (Optional)</label>
+                    <input type="file" id="productImage" accept="image/*">
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-large">Calculate Price</button>
+            </form>
+        </div>
+
+        <div id="resultSection" class="result-section" style="display: none;">
+            <h2>Shipment Summary</h2>
+            <div class="result-card">
+                <div class="result-row">
+                    <span>Customer:</span>
+                    <strong id="resultCustomer"></strong>
+                </div>
+                <div class="result-row">
+                    <span>Product:</span>
+                    <strong id="resultProduct"></strong>
+                </div>
+                <div class="result-row">
+                    <span>Weight:</span>
+                    <strong id="resultWeight"></strong>
+                </div>
+                <div class="result-row">
+                    <span>Destination:</span>
+                    <strong id="resultDestination"></strong>
+                </div>
+                <div class="result-row">
+                    <span>Distance:</span>
+                    <strong id="resultDistance"></strong>
+                </div>
+                <div class="result-row">
+                    <span>Container Type:</span>
+                    <strong id="resultContainer"></strong>
+                </div>
+                <div class="result-row highlight">
+                    <span>Total Price:</span>
+                    <strong id="resultPrice"></strong>
+                </div>
+                <div class="result-row">
+                    <span>Estimated Delivery:</span>
+                    <strong id="resultDelivery"></strong>
+                </div>
+                <div class="result-row">
+                    <span>Order ID:</span>
+                    <strong id="resultOrderId"></strong>
+                </div>
+                <div class="result-row">
+                    <span>Product Image:</span>
+                    <img id="resultImage" alt="Product image" style="max-width: 160px; display: none; border-radius: 8px;" />
+                </div>
+                <button id="confirmShipment" class="btn btn-success btn-large">Confirm Order</button>
+                <button id="cancelShipment" class="btn btn-secondary btn-large">Cancel</button>
+            </div>
+        </div>
+
+        <div id="loadingSection" class="loading-section" style="display: none;">
+            <div class="spinner"></div>
+            <p>Calculating distance...</p>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+    <script src="customer.js"></script>
+</body>
+</html>
